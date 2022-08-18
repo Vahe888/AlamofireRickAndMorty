@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		4935C26028AD7C58009927CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C25F28AD7C58009927CC /* AppDelegate.swift */; };
 		4935C26228AD7C58009927CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C26128AD7C58009927CC /* SceneDelegate.swift */; };
-		4935C26428AD7C58009927CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C26328AD7C58009927CC /* ViewController.swift */; };
 		4935C26728AD7C58009927CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4935C26528AD7C58009927CC /* Main.storyboard */; };
 		4935C26928AD7C5A009927CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4935C26828AD7C5A009927CC /* Assets.xcassets */; };
 		4935C26C28AD7C5A009927CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4935C26A28AD7C5A009927CC /* LaunchScreen.storyboard */; };
+		4935C27828AD81CD009927CC /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27728AD81CD009927CC /* Character.swift */; };
+		4935C27A28AE8A79009927CC /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27928AE8A79009927CC /* HomeCollectionViewController.swift */; };
+		4935C27C28AE8AC3009927CC /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27B28AE8AC2009927CC /* PosterCollectionViewCell.swift */; };
+		4935C27E28AEC0FF009927CC /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27D28AEC0FE009927CC /* AlamofireManager.swift */; };
 		E94F5BC0914A648DDDFA3BE7 /* Pods_AlamofireRickAndMorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1CB3EF914BB673A87056C8 /* Pods_AlamofireRickAndMorty.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +23,14 @@
 		4935C25C28AD7C58009927CC /* AlamofireRickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireRickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4935C25F28AD7C58009927CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4935C26128AD7C58009927CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4935C26328AD7C58009927CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4935C26628AD7C58009927CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4935C26828AD7C5A009927CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4935C26B28AD7C5A009927CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4935C26D28AD7C5A009927CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4935C27728AD81CD009927CC /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		4935C27928AE8A79009927CC /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		4935C27B28AE8AC2009927CC /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
+		4935C27D28AEC0FE009927CC /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		9EC5C21F2B4C32A62CDDA004 /* Pods-AlamofireRickAndMorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireRickAndMorty.release.xcconfig"; path = "Target Support Files/Pods-AlamofireRickAndMorty/Pods-AlamofireRickAndMorty.release.xcconfig"; sourceTree = "<group>"; };
 		AB1CB3EF914BB673A87056C8 /* Pods_AlamofireRickAndMorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireRickAndMorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC32BA7EB913B8635D625F39 /* Pods-AlamofireRickAndMorty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireRickAndMorty.debug.xcconfig"; path = "Target Support Files/Pods-AlamofireRickAndMorty/Pods-AlamofireRickAndMorty.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,15 +77,74 @@
 		4935C25E28AD7C58009927CC /* AlamofireRickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
-				4935C25F28AD7C58009927CC /* AppDelegate.swift */,
-				4935C26128AD7C58009927CC /* SceneDelegate.swift */,
-				4935C26328AD7C58009927CC /* ViewController.swift */,
-				4935C26528AD7C58009927CC /* Main.storyboard */,
-				4935C26828AD7C5A009927CC /* Assets.xcassets */,
-				4935C26A28AD7C5A009927CC /* LaunchScreen.storyboard */,
+				4935C27628AD818E009927CC /* Resources */,
+				4935C28128AEC451009927CC /* Managers */,
+				4935C27328AD8176009927CC /* Models */,
+				4935C27528AD8184009927CC /* Views */,
+				4935C27428AD817D009927CC /* Controllers */,
 				4935C26D28AD7C5A009927CC /* Info.plist */,
 			);
 			path = AlamofireRickAndMorty;
+			sourceTree = "<group>";
+		};
+		4935C27328AD8176009927CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4935C27728AD81CD009927CC /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4935C27428AD817D009927CC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4935C27928AE8A79009927CC /* HomeCollectionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4935C27528AD8184009927CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4935C28028AEC42D009927CC /* Storyboards */,
+				4935C27F28AEC41A009927CC /* CollectionVIewCells */,
+				4935C26828AD7C5A009927CC /* Assets.xcassets */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4935C27628AD818E009927CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4935C25F28AD7C58009927CC /* AppDelegate.swift */,
+				4935C26128AD7C58009927CC /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4935C27F28AEC41A009927CC /* CollectionVIewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4935C27B28AE8AC2009927CC /* PosterCollectionViewCell.swift */,
+			);
+			path = CollectionVIewCells;
+			sourceTree = "<group>";
+		};
+		4935C28028AEC42D009927CC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4935C26528AD7C58009927CC /* Main.storyboard */,
+				4935C26A28AD7C5A009927CC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4935C28128AEC451009927CC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4935C27D28AEC0FE009927CC /* AlamofireManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		A046075C61EC8A1D425623F5 /* Pods */ = {
@@ -88,7 +153,6 @@
 				CC32BA7EB913B8635D625F39 /* Pods-AlamofireRickAndMorty.debug.xcconfig */,
 				9EC5C21F2B4C32A62CDDA004 /* Pods-AlamofireRickAndMorty.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,9 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4935C26428AD7C58009927CC /* ViewController.swift in Sources */,
 				4935C26028AD7C58009927CC /* AppDelegate.swift in Sources */,
 				4935C26228AD7C58009927CC /* SceneDelegate.swift in Sources */,
+				4935C27C28AE8AC3009927CC /* PosterCollectionViewCell.swift in Sources */,
+				4935C27A28AE8A79009927CC /* HomeCollectionViewController.swift in Sources */,
+				4935C27E28AEC0FF009927CC /* AlamofireManager.swift in Sources */,
+				4935C27828AD81CD009927CC /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

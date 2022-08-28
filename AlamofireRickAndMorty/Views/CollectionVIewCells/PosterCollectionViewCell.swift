@@ -18,10 +18,12 @@ class PosterCollectionViewCell: UICollectionViewCell {
     
     public func configure(with model: Character) {
         guard let imageURL = model.image,
-                let url = URL(string: imageURL),
-                let name = model.name else {
+              let url = URL(string: imageURL),
+              let name = model.name else {
+            print("Failed to get image url and name for configuration")
             return
         }
+        print("Successfully get image url and name for \(model.id)")
         
         DispatchQueue.main.async {
             self.nameLabel.text = name

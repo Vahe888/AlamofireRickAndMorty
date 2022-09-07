@@ -13,9 +13,10 @@
 		4935C26928AD7C5A009927CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4935C26828AD7C5A009927CC /* Assets.xcassets */; };
 		4935C26C28AD7C5A009927CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4935C26A28AD7C5A009927CC /* LaunchScreen.storyboard */; };
 		4935C27828AD81CD009927CC /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27728AD81CD009927CC /* Character.swift */; };
-		4935C27A28AE8A79009927CC /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27928AE8A79009927CC /* HomeCollectionViewController.swift */; };
-		4935C27C28AE8AC3009927CC /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27B28AE8AC2009927CC /* PosterCollectionViewCell.swift */; };
 		4935C27E28AEC0FF009927CC /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C27D28AEC0FE009927CC /* AlamofireManager.swift */; };
+		49404C4428C4D18E0013583B /* RickAndMortyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49404C4328C4D18E0013583B /* RickAndMortyCollectionViewCell.swift */; };
+		49404C4628C647EB0013583B /* RickAndMortyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49404C4528C647EB0013583B /* RickAndMortyViewController.swift */; };
+		49404C4828C8DCEB0013583B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49404C4728C8DCEB0013583B /* DetailViewController.swift */; };
 		E94F5BC0914A648DDDFA3BE7 /* Pods_AlamofireRickAndMorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1CB3EF914BB673A87056C8 /* Pods_AlamofireRickAndMorty.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +29,10 @@
 		4935C26B28AD7C5A009927CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4935C26D28AD7C5A009927CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4935C27728AD81CD009927CC /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		4935C27928AE8A79009927CC /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		4935C27B28AE8AC2009927CC /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		4935C27D28AEC0FE009927CC /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		49404C4328C4D18E0013583B /* RickAndMortyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCollectionViewCell.swift; sourceTree = "<group>"; };
+		49404C4528C647EB0013583B /* RickAndMortyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyViewController.swift; sourceTree = "<group>"; };
+		49404C4728C8DCEB0013583B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "../3rd View Controller/DetailViewController.swift"; sourceTree = "<group>"; };
 		9EC5C21F2B4C32A62CDDA004 /* Pods-AlamofireRickAndMorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireRickAndMorty.release.xcconfig"; path = "Target Support Files/Pods-AlamofireRickAndMorty/Pods-AlamofireRickAndMorty.release.xcconfig"; sourceTree = "<group>"; };
 		AB1CB3EF914BB673A87056C8 /* Pods_AlamofireRickAndMorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireRickAndMorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC32BA7EB913B8635D625F39 /* Pods-AlamofireRickAndMorty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireRickAndMorty.debug.xcconfig"; path = "Target Support Files/Pods-AlamofireRickAndMorty/Pods-AlamofireRickAndMorty.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +100,8 @@
 		4935C27428AD817D009927CC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4935C27928AE8A79009927CC /* HomeCollectionViewController.swift */,
+				49404C4528C647EB0013583B /* RickAndMortyViewController.swift */,
+				49404C4728C8DCEB0013583B /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,7 +128,7 @@
 		4935C27F28AEC41A009927CC /* CollectionVIewCells */ = {
 			isa = PBXGroup;
 			children = (
-				4935C27B28AE8AC2009927CC /* PosterCollectionViewCell.swift */,
+				49404C4328C4D18E0013583B /* RickAndMortyCollectionViewCell.swift */,
 			);
 			path = CollectionVIewCells;
 			sourceTree = "<group>";
@@ -271,10 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49404C4428C4D18E0013583B /* RickAndMortyCollectionViewCell.swift in Sources */,
 				4935C26028AD7C58009927CC /* AppDelegate.swift in Sources */,
+				49404C4828C8DCEB0013583B /* DetailViewController.swift in Sources */,
 				4935C26228AD7C58009927CC /* SceneDelegate.swift in Sources */,
-				4935C27C28AE8AC3009927CC /* PosterCollectionViewCell.swift in Sources */,
-				4935C27A28AE8A79009927CC /* HomeCollectionViewController.swift in Sources */,
+				49404C4628C647EB0013583B /* RickAndMortyViewController.swift in Sources */,
 				4935C27E28AEC0FF009927CC /* AlamofireManager.swift in Sources */,
 				4935C27828AD81CD009927CC /* Character.swift in Sources */,
 			);

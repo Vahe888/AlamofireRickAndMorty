@@ -13,10 +13,10 @@ struct Character: Decodable {
     let status: Status?     // The status of the character ('Alive', 'Dead' or 'unknown').
     let species: String?    // The species of the character.
     let type: String?       // The type or subspecies of the character.
-    let gender: String?     // The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
+    let gender: Gender?     // The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
     let origin: Origin?     // Name and link to the character's origin location.
     let location: Location? // Name and link to the character's last known location endpoint.
-    let image: String?      // Link to the character's image. All images are 300x300px and most are medium shots                          or portraits since they are intended to be used as avatars.
+    let image: String?      // Link to the character's image. All images are 300x300px and most are medium                        shots or portraits since they are intended to be used as avatars.
     let episode: [URL]      // List of episodes in which this character appeared.
     let url: String?        // Link to the character's own URL endpoint.
     let created: String?    // Time at which the character was created in the database.
@@ -25,6 +25,13 @@ struct Character: Decodable {
 enum Status: String, Decodable {
     case Alive
     case Dead
+    case unknown
+}
+
+enum Gender: String, Decodable {
+    case Female
+    case Male
+    case Genderless
     case unknown
 }
 

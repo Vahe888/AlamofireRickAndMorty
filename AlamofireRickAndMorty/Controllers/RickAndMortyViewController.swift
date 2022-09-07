@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import SDWebImage
 
 struct Constants {
-    static var baseURL = "https://rickandmortyapi.com/api/character/?page=10" //name=rick&status=alive"
+    static var baseURL = "https://rickandmortyapi.com/api/character/?page=30" //name=rick&status=alive"
 
     static let leftDistanceToView: CGFloat = 40
     static let rightDistanceToView: CGFloat = 40

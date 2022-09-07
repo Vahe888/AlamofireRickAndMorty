@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RickAndMortyCollectionViewCell: UICollectionViewCell {
     
@@ -18,7 +19,7 @@ class RickAndMortyCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = (Constants.itemWidth - 4) / 2
-        imageView.layer.borderWidth = 2
+        imageView.layer.borderWidth = 1.5
         imageView.layer.borderColor = UIColor.label.cgColor
         return imageView
     }()
@@ -29,7 +30,7 @@ class RickAndMortyCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .label
         label.textAlignment = .center
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         return label
     }()
     
@@ -37,9 +38,8 @@ class RickAndMortyCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .bold)
-//        label.textColor = .label
         label.textAlignment = .center
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         return label
     }()
     

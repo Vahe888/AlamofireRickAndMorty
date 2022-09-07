@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = character?.name
         navigationController?.navigationBar.tintColor = .label
 
@@ -34,6 +35,28 @@ class DetailViewController: UIViewController {
         DispatchQueue.main.async {
             self.nameLabel.text = name
             self.imageView.sd_setImage(with: url, completed: nil)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        imageView.layer.cornerRadius = 150
+        imageView.layer.shadowRadius = 5
+        imageView.layer.shadowOpacity = 0.6
+        imageView.layer.shadowOffset = CGSize(width: 5, height: 8)
+        imageView.layer.shadowColor = getShadowColor(from: character?.status)
+        imageView.clipsToBounds = false
+    }
+    
+    private func getShadowColor(from status: Status?) -> CGColor {
+        switch status {
+        case .Alive:
+            return UIColor.green.cgColor
+        case .Dead:
+            return UIColor.red.cgColor
+        default:
+            return UIColor.label.cgColor
         }
     }
 }

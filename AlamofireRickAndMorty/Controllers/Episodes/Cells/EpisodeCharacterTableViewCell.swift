@@ -1,23 +1,22 @@
 //
-//  LocationResidentTableViewCell.swift
+//  EpisodeCharacterTableViewCell.swift
 //  AlamofireRickAndMorty
 //
-//  Created by Vahe Israyelyan on 25.09.22.
+//  Created by Vahe Israyelyan on 26.09.22.
 //
 
 import UIKit
 
-class LocationResidentTableViewCell: UITableViewCell {
-    
-    static let identifier = "LocationResidentTableViewCell"
-    
+class EpisodeCharacterTableViewCell: UITableViewCell {
+
     @IBOutlet weak var pictureImageView: UIImageView!
-    @IBOutlet weak var residentNameLabel: UILabel!
+    @IBOutlet weak var characterNameLabel: UILabel!
     
+    static let identifier = "EpisodeCharacterTableViewCell"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,7 +30,7 @@ class LocationResidentTableViewCell: UITableViewCell {
         }
         DispatchQueue.main.async {
             self.pictureImageView.sd_setImage(with: url)
-            self.residentNameLabel.text = name
+            self.characterNameLabel.text = name
         }
     }
 }

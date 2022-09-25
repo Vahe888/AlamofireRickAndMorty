@@ -14,7 +14,7 @@ class RickAndMortyLocationsTableViewController: UITableViewController {
     private var hasMoreContent = true
     private var locationCount = 0
     
-//    var character = [ResultsCharacter]()
+    var characters = [ResultsCharacter]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,6 @@ class RickAndMortyLocationsTableViewController: UITableViewController {
             switch result {
             case .success(let response):
                 self.locationCount = response?.info?.count ?? 0
-                print(self.locationCount)
             case .failure(let error):
                 print(error)
             }
@@ -85,18 +84,36 @@ class RickAndMortyLocationsTableViewController: UITableViewController {
         let location = locations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "RickAndMortyLocationCell", for: indexPath)
         cell.textLabel?.text = location.name
-                
         return cell
+    }
+    
+    fileprivate func fetchCharactersFromLocation(_ location: ResultsLocation) {
+        for resident in location.residents {
+            
+            AlamofireManager.shared.getCharacter(with: resident) { result in
+                switch result {
+                case .success(let character):
+                    self.characters.append(character)
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    break
+                }
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let location = locations[indexPath.row]
-
+        
+        fetchCharactersFromLocation(location)
+        
         guard let detailLocationTableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.DetailLocationTableViewControllerIdentifier) as? DetailLocationTableViewController else {
             return
         }
         detailLocationTableViewController.location = location
+        detailLocationTableViewController.characters = self.characters
         navigationController?.pushViewController(detailLocationTableViewController, animated: true)
     }
 }

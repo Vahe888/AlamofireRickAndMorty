@@ -7,15 +7,15 @@
 
 import UIKit
 
-class DetailLocationTableViewController: UITableViewController {
+class DetailEpisodeTableViewController: UITableViewController {
     
-    var location: ResultsLocation?
+    var episode: ResultsEpisode?
     var characters: [ResultsCharacter]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = location?.name
+        self.title = episode?.name
         navigationController?.navigationBar.tintColor = .label
         tableView.selectionFollowsFocus = true
     }
@@ -32,30 +32,28 @@ class DetailLocationTableViewController: UITableViewController {
         if section == 0 {
             return 2
         }
-        return location?.residents.count ?? 0
+        return episode?.characters.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "INFO"
         }
-        return "RESIDENTS"
+        return "CHARACTERS"
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationInfoTableViewCell.identifier, for: indexPath) as? LocationInfoTableViewCell,
-                  let location = location else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EpisodeInfoTableViewCell.identifier, for: indexPath) as? EpisodeInfoTableViewCell,
+                  let episode = episode else {
                 return UITableViewCell()
             }
-            cell.configure(with: location, in: indexPath)
+            cell.configure(with: episode, in: indexPath)
             
             return cell
         }
         else if indexPath.section == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationResidentTableViewCell.identifier, for: indexPath) as? LocationResidentTableViewCell, let character = self.characters, !character.isEmpty else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EpisodeCharacterTableViewCell.identifier, for: indexPath) as? EpisodeCharacterTableViewCell, let character = self.characters, !character.isEmpty else {
                 return UITableViewCell()
             }
             cell.configure(with: character[indexPath.row], in: indexPath)

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490EC1D228E10A2A003FA90C /* DetailEpisodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490EC1D128E10A2A003FA90C /* DetailEpisodeTableViewController.swift */; };
+		490EC1D528E10A99003FA90C /* EpisodeInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490EC1D428E10A99003FA90C /* EpisodeInfoTableViewCell.swift */; };
+		490EC1D728E10AAF003FA90C /* EpisodeCharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490EC1D628E10AAF003FA90C /* EpisodeCharacterTableViewCell.swift */; };
 		4935C26028AD7C58009927CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C25F28AD7C58009927CC /* AppDelegate.swift */; };
 		4935C26228AD7C58009927CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4935C26128AD7C58009927CC /* SceneDelegate.swift */; };
 		4935C26728AD7C58009927CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4935C26528AD7C58009927CC /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490EC1D128E10A2A003FA90C /* DetailEpisodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEpisodeTableViewController.swift; sourceTree = "<group>"; };
+		490EC1D428E10A99003FA90C /* EpisodeInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoTableViewCell.swift; sourceTree = "<group>"; };
+		490EC1D628E10AAF003FA90C /* EpisodeCharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCharacterTableViewCell.swift; sourceTree = "<group>"; };
 		4935C25C28AD7C58009927CC /* AlamofireRickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireRickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4935C25F28AD7C58009927CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4935C26128AD7C58009927CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,15 @@
 				AB1CB3EF914BB673A87056C8 /* Pods_AlamofireRickAndMorty.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		490EC1D328E10A83003FA90C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				490EC1D428E10A99003FA90C /* EpisodeInfoTableViewCell.swift */,
+				490EC1D628E10AAF003FA90C /* EpisodeCharacterTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4935C25328AD7C58009927CC = {
@@ -201,7 +216,9 @@
 		4999D88B28DB86CE006F637F /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				490EC1D328E10A83003FA90C /* Cells */,
 				4999D88E28DB8ADF006F637F /* RickAndMortyEpisodesTableViewController.swift */,
+				490EC1D128E10A2A003FA90C /* DetailEpisodeTableViewController.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -359,6 +376,8 @@
 				4999D89628DCEFCA006F637F /* CharacterViewModel.swift in Sources */,
 				4999D89328DB9D01006F637F /* RickAndMortyCharacterCollectionViewCell.swift in Sources */,
 				4999D88D28DB87E4006F637F /* RickAndMortyLocationsTableViewController.swift in Sources */,
+				490EC1D228E10A2A003FA90C /* DetailEpisodeTableViewController.swift in Sources */,
+				490EC1D728E10AAF003FA90C /* EpisodeCharacterTableViewCell.swift in Sources */,
 				49404C4428C4D18E0013583B /* RickAndMortyCollectionViewCell.swift in Sources */,
 				49E2B66B28DF8F3F00E533F9 /* DetailLocationTableViewController.swift in Sources */,
 				4935C26028AD7C58009927CC /* AppDelegate.swift in Sources */,
@@ -367,6 +386,7 @@
 				49404C4628C647EB0013583B /* RickAndMortyCharactersViewController.swift in Sources */,
 				49E2B67028DFA8D000E533F9 /* LocationResidentTableViewCell.swift in Sources */,
 				4935C27E28AEC0FF009927CC /* AlamofireManager.swift in Sources */,
+				490EC1D528E10A99003FA90C /* EpisodeInfoTableViewCell.swift in Sources */,
 				4999D88828DB8301006F637F /* DetailCharacterTableViewController.swift in Sources */,
 				4999D89128DB99A6006F637F /* RickAndMortyCharactersCollectionViewController.swift in Sources */,
 				4999D87A28DA09A4006F637F /* Episode.swift in Sources */,

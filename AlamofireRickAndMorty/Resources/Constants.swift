@@ -23,5 +23,6 @@ struct Constants {
     
     static let DetailCharacterTableViewControllerIdentifier = "DetailCharacterTableViewController"
     static let DetailLocationTableViewControllerIdentifier = "DetailLocationTableViewController"
+    static let DetailEpisodeTableViewControllerIdentifiew = "DetailEpisodeTableViewController"
 
 }

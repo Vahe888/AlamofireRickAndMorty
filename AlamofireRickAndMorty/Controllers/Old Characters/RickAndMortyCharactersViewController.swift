@@ -83,7 +83,6 @@ class RickAndMortyCharactersViewController: UIViewController {
         AlamofireManager.shared.getCharacters(with: url) { [weak self] result in
             switch result {
             case .success(let characters):
-                print("Success to fetch data and get characters array")
                 self?.characters = characters
                 DispatchQueue.main.async {
                     self?.collectionView?.reloadData()

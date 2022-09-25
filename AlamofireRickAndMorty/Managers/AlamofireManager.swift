@@ -35,6 +35,21 @@ final class AlamofireManager {
         }
     }
     
+    func getCharacter(with url: String, completion: @escaping (Result<ResultsCharacter, Error>) -> Void) {
+        guard let url = URL(string: url) else {
+            completion(.failure(AlamofireManagerError.failedToGetURL))
+            return
+        }
+    	
+        AF.request(url).validate().responseDecodable(of: ResultsCharacter.self) { response in
+            guard let character = response.value else {
+                completion(.failure(AlamofireManagerError.failedToGetRequest))
+                return
+            }
+            completion(.success(character))
+        }
+    }
+    
     // MARK: - Characters
     func getCharacters(in page: Int, completion: @escaping (Result<[ResultsCharacter], Error>) -> Void) {
         let urlCharacter = Constants.charactersURL + "?page=\(page)"

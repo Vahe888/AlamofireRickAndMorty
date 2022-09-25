@@ -18,12 +18,10 @@ class LocationInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -33,6 +31,5 @@ class LocationInfoTableViewCell: UITableViewCell {
             self.infoNameLabel.text = (indexPath.row == 0) ? "Type" : "Dimention"
             self.infoDetailLabel.text = (indexPath.row == 0) ? location.type : location.dimension
         }
-
     }
 }

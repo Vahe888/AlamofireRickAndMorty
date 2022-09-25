@@ -69,7 +69,7 @@ class RickAndMortyCollectionViewCell: UICollectionViewCell {
         statusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 12).isActive = true
     }
     
-    public func configure(with model: Character) {
+    public func configure(with model: ResultsCharacter) {
         guard let name = model.name,
               let status = model.status,
               let imageURL = model.image,

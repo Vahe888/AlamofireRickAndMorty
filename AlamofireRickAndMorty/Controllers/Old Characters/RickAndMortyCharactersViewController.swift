@@ -5,31 +5,31 @@
 //  Created by Vahe Israyelyan on 05.09.22.
 //
 
+// MARK: - IMPORTANT - OLD VERSION OF CHARACTER VIEW CONTROLLER. SEE: RickAndMortyCharactersCollectionViewController
+
 import UIKit
 
-struct Constants {
-    static var baseURL = "https://rickandmortyapi.com/api/character/?page=30" //name=rick&status=alive"
+class RickAndMortyCharactersViewController: UIViewController {
 
-    static let leftDistanceToView: CGFloat = 40
-    static let rightDistanceToView: CGFloat = 40
-    static let minimumLineSpacing: CGFloat = 20
-    
-    static let itemWidth = (UIScreen.main.bounds.width - Constants.leftDistanceToView - Constants.rightDistanceToView - (Constants.minimumLineSpacing / 2)) / 1.5
-}
-
-class RickAndMortyViewController: UIViewController {
-
-    @IBOutlet private weak var titleLabel: UILabel!
-
-    private var characters = [Character]()
+    private var characters = [ResultsCharacter]()
+    private var newURL: String = ""
     private var collectionView: UICollectionView?
+    
+    private let textField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Page Number"
+        textField.borderStyle = .roundedRect
+        return textField
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupCollectionView()
+        setupTextField()
 
-        fetchData(with: Constants.baseURL)
+        getCharacters(with: Constants.charactersURL)
     }
     
     private func setupCollectionView() {
@@ -59,6 +59,7 @@ class RickAndMortyViewController: UIViewController {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
                 
         view.addSubview(collectionView)
 
@@ -68,8 +69,18 @@ class RickAndMortyViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: 350).isActive = true
     }
     
-    private func fetchData(with url: String) {
-        AlamofireManager.shared.fetchData(with: url) { [weak self] result in
+    private func setupTextField() {
+        view.addSubview(textField)
+        textField.delegate = self
+        
+        textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100).isActive = true
+        textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100).isActive = true
+        textField.topAnchor.constraint(equalTo: collectionView!.bottomAnchor, constant: 20).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    private func getCharacters(with url: String) {
+        AlamofireManager.shared.getCharacters(with: url) { [weak self] result in
             switch result {
             case .success(let characters):
                 print("Success to fetch data and get characters array")
@@ -84,7 +95,7 @@ class RickAndMortyViewController: UIViewController {
     }
 }
 
-extension RickAndMortyViewController: UICollectionViewDataSource {
+extension RickAndMortyCharactersViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return characters.count
@@ -103,18 +114,33 @@ extension RickAndMortyViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let charater = characters[indexPath.item]
-        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+
+        guard let detailCharacterTableViewController = storyboard?.instantiateViewController(withIdentifier: Constants.DetailCharacterTableViewControllerIdentifier) as? DetailCharacterTableViewController else {
             return
         }
-        
-        detailViewController.character = charater
-        navigationController?.pushViewController(detailViewController, animated: true)
+        detailCharacterTableViewController.character = charater
+        navigationController?.pushViewController(detailCharacterTableViewController, animated: true)
     }
 }
 
-extension RickAndMortyViewController: UICollectionViewDelegateFlowLayout {
+extension RickAndMortyCharactersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Constants.itemWidth, height: collectionView.frame.height * 0.9)
+        return CGSize(width: Constants.itemWidth, height: collectionView.frame.height * 0.85)
     }
 }
 
+extension RickAndMortyCharactersViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            newURL = "\(Constants.baseRickAndMortyURL)/character/?page=\(text)"
+            print(newURL)
+            getCharacters(with: newURL)
+            self.collectionView?.reloadData()
+        }
+    }
+}
